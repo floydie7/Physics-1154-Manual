@@ -1,0 +1,287 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Measurements}\label{sec:Measurements}
+
+The direct result of any experiment in the natural sciences is a measurement or a set of measurements--the ``raw data".  The measurements are usually in the form of a numerical statement resulting from the ``reading" of some sort of measuring device.  The most familiar examples at this point are rulers, which measure length, protractors, which measure angles, and clocks, which measure time but there are others with which the student will become acquainted later; voltmeters, ammeters, thermometers, etc.  Regardless of what physical quantity is being measured, or what type of device is being used, the accuracy of the reading is ultimately dependent upon the ability of a human being to read the instrument.  Hence, the measurement can only be as accurate as the scale of the measuring instrument and the limitations of the experimenter permit.  No reading is ever exact.
+
+Because of this, certain conventions have been adopted by scientists and engineers to indicate the accuracy of their measurements.  If an engineer measures the length of a room and reports that he finds it to be 12 meters he means that it is larger than 11.5 meters and less than 12.5 meters.  The implication is that the measuring device could only be read to the nearest half meter (perhaps a string with knots tied at one meter intervals was used).  Under the circumstances, it would not be justifiable to state that the room was found to be 12.00 meters long.  Such a statement implies that the room is at least 11.995 meters long and no longer than 12.005 meters, i.e., it implies that the experimenter can read the measuring device to at least 0.005 meters---or to the nearest half centimeter.  With a meter stick graduated in centimeters, a reported length of 12.35 meters would be justified.
+
+The two digits in the reading 12 meters and the four digits 12.35 are called \emph{significant} figures because they contain meaningful information.  In the later case, the first three digits in the number 12.35 are called \emph{certain} numbers--there is no doubt about their values.  The last digit, 5, is uncertain---it is a result of an estimate on the part of the observer who has mentally divided the smallest scale division---one centimeter---into two halves and has judged that the last digit is between 4.5 and 5.5.  It would obviously be foolish, with a meter stick graduated in centimeters, to claim a measurement of, say, 9.563728 meters.  The numbers beyond 6 are merely guesses---with no real physical significance at all. It is very important that the student develop a ``sense of significance" when recording data.  When a thermometer can be read only to the nearest half degree, don't record temperatures to the nearest hundredths of a degree.  On the other hand, don't underestimate wer ability.  If we can read a voltmeter to a tenth of a volt, do so.  It is quite possible that if the measurements are recorded only to the nearest volt, we may miss the very effect we are looking for.
+% Possibly insert Wilkin's page-long comment from page vi
+
+Difficulty sometimes arises in trying to determine whether or not a zero should be regarded as a significant figure or not.  The reason for this difficulty is that zeros are placeholders.  Whenever zeros appear sandwiched between significant numbers, such as 20.003 cm., there is no question; the zeros are significant numbers. However, when zeros appear between a decimal point and the first significant number such as 0.000312, the zeros are not significant.  The only significant numbers in this reading are 312.  A similar problem arises with trailing zeros.  An example of this would be 93,000,000.  The zeros are presumably not significant; unless we have other information to the contrary, we can probably assume they only indicate the size of the number.
+
+Now consider a couple of more complicated cases.  What are the significant figures in the numbers 0.0003120 and 93,000,000.00?  In the first case, there are four significant figures, 3120.  The last zero in this case does not serve as a decimal place indicator.  In fact it has no purpose in being there at all unless it indicates the accuracy of the number.  Similarly, the two zeros behind the decimal in 93,000,000.00 are not necessary to the position the decimal, they can only be there to indicate the accuracy of the number.  In this case there are ten significant figures!  The zeros in front of the decimal are now sandwiched between significant numbers and are therefore significant numbers.  This is an important distinction; the number 93,000,000 merely indicates that the reading lies between 92,500,000 and 93,500,000---a possible uncertainty of 1,000,000.  But the number 93,000,000.00 means that the reading lies between 92,999,999.995 and 93,000,000.005, a fantastic difference in accuracy!
+
+In most cases there is not really much difficulty in using the proper number of significant figures to express a measurement. But it is surprising how often significant figures are neglected in expressing a final result obtained from calculations involving measurements.  For example, if one measures the length of a room as $10.3\mathbf{5}$ meters and the width as $5.2\mathbf{1}$ meters and then wished to find the area, a direct calculation gives:
+\[
+10.35 \text{ m} \times 5.21 \text{ m} = 53.9235 \text{ m}^2
+\]
+But how many of these 6 digits are significant? The results lies between  these two values:
+\begin{align*}
+10.345 \text{ m} \times 5.205 \text{ m} &= 53.85 \text{ m}^2, \text{and}\\
+10.355 \text{ m} \times 5.215 \text{ m} &= 54.00 \text{ m}^2.
+\end{align*}
+Hence we can only say that the area of the room is $54. \text{ m}^2$---a value with 2 significant figures. To quickly estimate the accuracy of a result, we generally follow this crude rule-of-thumb: In multiplication or division with several numbers, the result has as many significant figures as the least accurate of the numbers involved. We can see that in this case, where we multiplied a 4 s.f.\ and a 3 s.f.\ number together---``s.f.''\ stands for the number of significant digits---our rule-of-thumb predicts 3 significant figures for the product. This is incorrect---the product, $54. \text{ m}^2,$ has only 2. But in this course, the rule-of-thumb will be good enough for our purposes and we should get into the habit of using it for all our calculated results.
+
+There are two ways to record the number of s.f.\ in a number: 
+\begin{enumerate}
+\item
+We can underline of the smallest significant digit, e.g., $12.3\underline{5},$ or when typing, we can bold the digit, e.g., $9\mathbf{3},000,000;$ or
+\item
+Use scientific notation:
+\[
+1.235\e{1}, \qquad 9.3\e{6}.
+\]
+This shows at once that these numbers have 4 s.f.\ and 2 s.f., respectively.
+\end{enumerate}
+
+In addition and subtraction one should only retain numbers out to the first column containing an uncertainty.  In dropping the first number beyond an uncertainty, proper procedures for rounding numbers should be observed.  If the first number to be dropped is greater than 5, the last number retained should be increased by one. If the first number to be dropped is less than 5, no change is made in the numbers to be retained.  If the first number to be dropped is exactly 5, increase the preceding digit by one if it's odd, but leave it unchanged if it is even.    For example, 43.945 would round to 43.94 while 26.835 would round to 26.84.
+
+\section{Uncertainty and Evaluation of Data}\label{sec:Uncertainty}
+
+Experiments are rarely designed and performed just for something to do or for the benefit of the experimenter alone.  The experiment and its result are usually of interest to others, even if only because it has been assigned as a problem.  The measurements and final results must therefore be reported, usually in written form, so they may be useful to others.  In scientific and engineering reports this involves a detailed statement of how the data was obtained and what calculations, if any, were made.  For numerical results it is also extremely important that the final result be accompanied by an estimate of the uncertainty of the result.
+
+Uncertainties, or errors in measurement, can be grouped roughly into two categories: \emph{systematic} errors and \emph{random} errors.  Systematic errors are those which arise mainly from deficiencies in the measuring device and they almost always tend to make \emph{all} of the readings too high or all of the readings too low.  For example, consider two experimentalists, Alice and Bob who have decided to measure the rate at which a given mass of iron cools. (This involves keeping the room temperature fairly constant, guarding against air currents, etc., but we will assume that all of this has been properly taken care of).  The measurements consist of obtaining temperature readings of the iron at regularly spaced intervals of time, say one minute apart.  Experimenter Bob has a well-oiled, properly calibrated stop watch, but suppose that Alice has inadvertently left her highly accurate timer in a jar of molasses overnight, so that it still runs but at a slower rate that normal.  The outcome of the experiment is obvious.  Even though Alice's timer may be read to four significant figures and Bob's may only give two, the reporting measurements of the two experiments will be vastly different.  Alice will maintain that the object cools much more rapidly than Bob claims, because Alice's ``minutes" are all too long, she has a systematic error in his timing device.  Systematic errors are also common in electrical meters that have not been properly ``zeroed" or whose moving parts are not properly lubricated.  Happily, systematic errors can usually be eliminated by making certain that the measuring device is being used and cared for as it should be and by ``calibrating" it---making sure, for example, that it reads zero when it is supposed to or that its readings agree with those of some ``standard" devices. 
+
+The second class of errors---random errors---arise from less definable sources, but can generally be attributed to the physical limitations of the observer and measuring device referred to in the previous section.  The fact is, if one measures the length of a block of wood using different meter sticks (all with the same smallest scale division), one will not always obtain the same reading.  Or if the masses of several ten-gram masses are measured on a balance, it will be found that the masses do not come out to be ``exactly" ten grams in every case, nor will all of the measured values of mass be the same.  In case of the block of wood, the experimenter has a dilemma.  When he has finished taking, say ten readings, his data sheet may look like this:
+\begin{table}[h]
+\centering
+\begin{tabular}{c}
+Length of block (cm)\\
+\hline
+5.32\\
+5.30\\
+5.31\\
+5.33\\
+5.32\\
+5.31\\
+5.32\\
+5.33\\
+5.33\\
+5.32
+\end{tabular}
+\end{table}
+\FloatBarrier
+Which, if any, of these readings are to be trusted and what is the significance of the differences between the various readings?  If we assume that the errors involved in the measurements are entirely random in nature, the implication is that there will be as many readings that are too high as there are readings that are too low. Furthermore, (and even more important) the probability of making a measurement which is too large by a given amount  (say .01 cm) is \emph{equal to the probability} of getting a reading which is too small by the same amount (.01 cm).  If one could plot the probability of getting a certain reading (on the $y$-axis),  the  curve  should  be  that  shown  below.  It  is a completely  symmetric, bell-shaped curve which is known as the Gaussian or ``normal" distribution.  Note that in making this graph the probability of obtaining a certain reading has been equated to the frequency with which the reading turns up in the data, which is exactly what the term ``probability" implies in this case---given ten or a hundred or a thousand readings, the value that should turn up most frequently is the most probable or ``best" value.
+
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+} % Generate Gaussian curve for plot below
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[every axis plot post/.append style={
+  mark=none,domain=5.28:5.36,samples=10,smooth}, % All plots: from -2:2, 50 samples, smooth, no marks
+  axis x line*=bottom, % no box around the plot, only x and y axis
+  axis y line*=left, % the * suppresses the arrow tips
+  x label style={at={(axis description cs:0.5,-0.01)},anchor=north}, % Set label positions
+  y label style={at={(axis description cs:0.15,.5)},anchor=south},
+  xlabel={Length}, % Label on x-axis
+  ylabel={Frequency of reading}, % Label on y-axis
+  yticklabels={,,}, % Suppress y-axis tick marks
+  enlargelimits=upper] % extend the axes a bit to the right and top
+  \addplot {gauss(5.32,0.01)}; % Plot the graph
+\end{axis}
+\end{tikzpicture}
+\caption{}\label{fig:gaussian}
+\end{figure}
+
+\FloatBarrier
+It turns out, for the Gaussian distribution, that the most probable or ``best" value---the value at which the curve peaks---is just the familiar arithmetic average.  Mathematically, the average value, $\bar{x},$ of a set of $n$ numbers is written,
+\[
+\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}
+\]
+This just means we add all of the different numbers to get  $x_1 + x_2 + x_3 +\dotsb+ x_n$ then divide by $n.$  If we add all of the readings of the length of a block of wood given previously and divide by the number of readings, $n$, which is 10 in this case, we get
+\[
+L=5.319\text{ cm}
+\]
+as the ``best" or most probable value.  This is something we might have surmised by examining the original set of readings.  This is the value we would be justified in quoting as the result of our length measurements.  But what is the significance of the measurements that do \emph{not} agree with the best average?  Are these simply wrong results, to be discarded?  Not at all.  Remember, these readings were the consequence of real physical limitations of the observer and the measuring device and they should serve to tell us something about the precision of the result we have just found.  To do this, we will return once more to the Gaussian distribution.  We will assume the Gaussian distribution to be valid regardless of what sort of measurement is being made or what measuring device is being used.  The width of the curve and the height of the central peak will depend on the number of readings taken and on the scale of the instrument being read.  It is not difficult to see that if all of 100 readings for example result in the very same identical value, the Gaussian plot becomes a ``spike", a curve with essentially zero width and there can be no uncertainty associated with such a set of readings.  If some, but not many, of the 100 readings are not identical with the rest, the curve begins to have some finite width and the peak ``shorter" since some of the readings formerly contributing to the "spike" have now been shifted to the right or left in the widening process.  The area under the curve remains the same as it was.  If we now imagine that for the same 100 readings, more and more of them turn out to be different from the ``most frequent" one, it appears that the Gaussian curve will spread out more and more (in a symmetric way, so that the conditions of randomness are fulfilled) and the height of the peak decreases.  For such a curve, there must be a high degree of uncertainty.  Hence, \emph{the wider the curve of the Gaussian distribution, the higher the uncertainty of the best value.}
+
+Putting this statement in terms of a numerical uncertainty is something of an arbitrary process.    The most common measure of uncertainty is the standard deviation, $\sigma$ (sigma), given by
+\[\label{page:stdDev}
+\sigma = \sqrt{\frac{\sum_{i=1}^{n} (x_i-\bar{x})^2}{n-1}}
+\]
+where $\bar{x}-x_i$ are the deviations of the individual readings and $n$ is the total number of readings. The reason for the definition and common usage of the standard deviation is connected with the mathematical equation for the Gaussian curve itself.  Regardless of the width of the Gaussian plot, 68\% of the area under the curve lies between the values of $\bar{x}+\sigma$ and $\bar{x}-\sigma$ on the graph and 95\% lies between $\bar{x}+2\sigma$ and $\bar{x}-2\sigma.$  Once the standard deviation has been determined for a given ``system" (using a measuring device with a given scale) then any subsequent reading made using a device of similar accuracy will have a 68\% probability of being within $\pm\sigma$ of the ``best" value.  The deviation and $\sigma$ for the sample of 10 readings listed earlier are given below.
+\begin{table}[h]
+\centering
+\begin{tabular}{r|r|r}
+$x_i$ & Deviations, $x_i-\bar{x}$ & $(x_i-\bar{x})^2$\\
+\hline
+$5.32$ & $0.001$ & $1\e{-6}$\\
+$5.30$ & $-0.019$ & $4\e{-4}$\\
+$5.31$ & $-0.009$ & $8.1\e{-5}$\\
+$5.33$ & $0.011$ & $	1.21\e{-4}$\\
+$5.32$ & $0.001$ & $	1\e{-6}$\\ 
+$5.31$ & $-0.009$ & $8.1\e{-4}$\\
+$5.32$ & $0.001$ & $	1\e{-6}$\\
+$5.33$ & $0.011$ & $	1.21\e{-4}$\\
+$5.33$ & $0.011$ & $	1.21\e{-4}$\\
+$5.32$ & $0.001$ & $1\e{-6}$
+\end{tabular}
+\end{table}
+\FloatBarrier
+\[
+\sum_{i=1}^{10}(x_i-5.319)^2 = 8.9\e{-4}
+\]
+Now,
+\[
+\bar{x}=5.319 \qquad \qquad \sigma = \sqrt{\frac{8.9\e{-4}}{10-1}} = 0.009944\approx 0.01
+\]
+A random length measurement will, as we have said, fall within $\pm\sigma$ of $\bar{x}$ about 68\% of the time. Symbolically we could represent this typical range of individual length measurements by writing $\bar{x}\pm\sigma.$ In this case, rounded to its level of significance, that equals $5.32\pm0.01\text{ m}.$ This tells us that individual length measurements usually range from 5.31 m to 5.33 m.
+
+But notice that $\sigma$ does \emph{not} give a correct indication of how fuzzy $\bar{x}$ is. It overestimates the uncertainty by a sizable factor. This is because $\bar{x}$ is not an individual value. It is an average over 10 values, each of which deviates randomly to one side or another of the ``ideal length measurement, $L.$'' $L$ is what we would get if we made an infinite number of measurements and averaged them.
+
+Let us imagine that we take 10 measurements and average them to get our first estimate of $L_o$---call it $\bar{x}_1.$ Next, we do another 10 measurements and get $\bar{x}_2.$ We repeat this procedure over and over, generating a huge number of average length values, $\bar{x}_1,\bar{x}_2,\bar{x}_3,\dotsc.$ If we plot these we get a peaked curve very similar to the Gaussian of Figure~\ref{fig:gaussian}. These cluster around $L$ with a standard deviation called $s_E,$ called the standard error of the mean. If our sample consists of $n$ measurements, then it turns out that,
+\[
+s_E=\frac{\sigma}{\sqrt{n}}.
+\]
+Notice that $s_E$ is always smaller than $\sigma,$ and the bigger our sample size, $n,$ the smaller $s_E$ gets. This reflects the tendency of fluctuations to cancel our when we average a bunch of measurements.
+
+For our example, the uncertainty of the average length is,
+\[
+s_E=\Delta\bar{x}=\frac{0.009944\text{ m}}{\sqrt{10}}=0.00314\text{ m}.
+\]
+Since our original average value $\bar{x}_1=5.319\text{ m}$ likely falls about 68\% of the time within one $s_E$ of the ideal value, our best guess for $L$ can be expressed as a range,
+\begin{align*}
+L&=\bar{x}_1\pm\Delta\bar{x}=\bar{x}_1\pm s_E\\
+&=5.319\pm0.003\text{ m}.
+\end{align*}
+In general, the standard error is given by,
+\[
+s_E=\frac{\sigma}{\sqrt{n}}=\sqrt{\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n(n-1)}}.
+\]
+
+Note that the standard error, $s_E,$ has been rounded to \emph{one significant figure}.  Remember that the standard error controls how many figures are kept in the mean value so the mean value should not be rounded before the standard error is calculated.  The laboratory student is expected to be able to calculate the mean and standard error as done in the above example even though the standard error function is built into the calculator being used.   Incidentally, some calculators give two standard deviations, $\sigma_{n}$ and $\sigma_{n-1}.$  The latter is to be used in this course---the former is used in social sciences where $n$ is often very large.  The student is still expected to round the numbers for the final answer correctly.  \emph{Remember, the standard error retains one significant figure and the location of this figure determines the way the mean is rounded.}  It is quite possible for the standard error to indicate that the mean has more digits than any single measurement, as our calculation illustrates.
+
+Often the standard error is referred to as the numerical uncertainty of the reading and called  $\Delta L$ (in this case, since we are talking about a length measurement, so that the measurement is $L \pm  \Delta L,$ where $L$ is the ``best value" and $\Delta L$ the standard error.)  A relative uncertainty can also be obtained from the following formula
+\[
+\text{Relative uncertainty } = \frac{\Delta L}{L}\times 100\%
+\]
+In the case of the wooden block,
+\[
+\text{Relative uncertainty } = \frac{0.003}{5.319}\times 100\% = 0.06\%,
+\]
+which is a fairly accurate reading. If we had tried to measure the block with a meter stick whose smallest scale division was centimeters, we would likely have obtained a best value of 5.3 cm and estimate $\sigma=0.1\text{ cm}$ and $\Delta L=.1\text{ cm}/\sqrt{n}.$ The relative uncertainty in this case would have been $2\%/\sqrt{n}.$  Hence scale division plays a crucial role in determining the accuracy of the final result of a set of measurements.  Incidentally, relative uncertainty may be expressed as a decimal.
+
+There will be instances in which time or the nature of the experiment will not permit repeated measurements of a given quantity.  In such a case the scale division itself represents the best estimate of the uncertainty of a single reading.  For example, if the smallest scale division on a meter stick is 1 mm then clearly our readings will be uncertain by about $0.5\text{ mm } (= 0.05\text{ cm}),$ and we are measuring something that we judge to be 3.25 cm long, the best estimate of percentage uncertainty would be $(0.05\text{ cm}/3.25\text{ cm}) 100\% = 1.5\%.$  However, if we needed to measure an object 7 mm long with such a meter stick, and only one reading can be taken then we could incur a percentage error of $(0.5\text{ mm}/7\text{ mm})100\% = 7\%$---a considerable larger error.  It would be better, in such a  case, to use a special instrument such as micrometer calipers, which can normally be read to 0.01 mm with an inherent uncertainty of 0.005 mm.  As part of the ``sense of significance" we mentioned earlier, the student should get in the habit of constantly thinking of the ``size" of the measurement being made relative to the smallest scale division of the measuring device.  This often allows the experimenter to recognize the ``weak points" in an experiment.
+
+The errors we have been discussing are truly errors in the sense that they involve definite limitations involved in the measuring process.  Often, at the end of an experiment, it is possible to compare the result of the experiment to some standard value which can be found in a handbook or calculated from a theoretical equation (for example, the acceleration due to gravity or the elastic properties of copper rod, etc.)  It is all too common to regard any differences between such a ``standard value" and the value found in the laboratory as an ``error".  Strictly speaking, this is not so.  The values for any physical constant in a handbook are usually averages compiled from several experimental sources and obtained under various conditions of temperature, atmospheric pressure, etc.  The difference between an experimental value and a standard value should really be regarded as a discrepancy rather than as an error.  (In scientific terminology, a discrepancy denotes a difference between a pair of results without implying which value is right or wrong.)  The comparison of an experimental and a standard value is usually done by means of a percentage discrepancy defined as follows,
+\[
+\text{Percent discrepancy } = \frac{|\text{experimental value} - \text{standard value}|}{\text{standard value}}\times 100\%.
+\]
+
+In many cases there will be no ``standard value" with which to compare with experimental results.  However, in some experiments we will be asked to find the same physical quantity in two or three different ways.  (For example, one can find the initial velocity of a projectile by finding how far it travels or by finding how much energy it has as it leaves the ground).  In such cases, it is more likely than not that the results obtained using different methods will not agree with each other.  Obviously one result will turn out to be more reliable than another and the student should always thoroughly analyze the various experiments involved to determine why one might be more accurate than another. This, most often, will involve non-mathematical discussion.  In addition, the student should calculate the relative discrepancy between the various values obtained.  The formula for relative discrepancy is the same as that for percent discrepancy except that in place of the ``standard value" one uses the \emph{average} of the various experimental results.
+\[ \label{page:Relative_Discrepancy}
+\text{Relative discrepancy } = \frac{|\text{experimental value} - \text{average value}|}{\text{average value}} \times 100\%
+\]
+The phrase ``percent error" is sometimes used for percent discrepancy and ``percent difference" for relative discrepancy.
+	
+The final topic for this section involves the propagation of errors; how one handles uncertainties when a calculation is to be made with experimentally determined quantities.  As a simple example, suppose we have determined the masses of two lumps of clay and found them to be,
+\[
+m_1 = 56.2 \pm 0.1 \text{ g}
+\]
+and
+\[
+m_2 = 39.9 \pm 0.3 \text{ g}
+\]
+respectively, for mass ``one" and mass ``two" and we now wish to calculate the mass we would obtain by rolling the two lumps together.  The ``best value" of  the separate  lumps,
+\[
+m_T=m_1+m_2 = 95.5\text{ g}.
+\]
+But what about uncertainty?  If we consider the meaning of the numerical uncertainty for m1, it means that there is a reasonably good chance that mass $m_1$ is larger than 56.1 g and smaller than 56.3 g.  Likewise, $m_2$ must be between 39.0 g and 39.6 g.  The sum of these two masses could be as low as $56.1 + 39.0 = 95.1\text{ g}$ or as large as $56.3 + 39.6 = 95.9\text{ g},$ i.e. $m_T = 95.5 \pm 0.4\text{ g}.$  Since $0.4 = 0.1 + 0.3$ the uncertainties in this case are found to add.  This is the result we would have found if we had simply assumed,
+\[
+m_T \pm \Delta m_T = m_1 \pm \Delta m_1 + m_2 \pm \Delta m_2,
+\]
+and since,
+\[
+m_T=m_1+m_2,
+\]
+then
+\[
+\Delta m_T= \Delta m_1 + \Delta m_2.
+\]
+However, if we had wanted to find the difference between $m_1$  and $m_2$ we would again find that the uncertainties add!  The best value of the difference is 16.9 g but the lowest value we could get would be $56.1 - 39.6 = 16.5\text{ g}$ and the largest value would be $56.3 - 39.0 = 17.3\text{ g}.$  Hence the final value is $m_d = 16.9 + 0.4\text{ g}.$
+
+Next, consider the case in which we have found a length and width of a rectangle experimentally and we want to use these  values to calculate an area.  Assume that
+\[
+L \pm \Delta L = 6.32\pm 0.06\text{ cm} \quad \text{and} \quad w \pm \Delta w = 3.05 \pm 0.05\text{ cm}.
+\]
+The ``best value'' of the area is,
+\[
+A = Lw = 6.32 \times 3.05 = 19.276\text{ cm}^2\approx 19.3\text{ cm}^2.
+\]
+It is logical to assume that,
+\begin{align*}
+A \pm \Delta A &= (L \pm \Delta L) (w \pm \Delta w)\\
+		&=Lw \pm w\Delta L \pm L\Delta w \pm \Delta L \Delta w.
+\end{align*}
+Assuming $\Delta L \Delta w$ is very small (it is 0.003 in this example) so we can neglect it and since $A=Lw$ it must be true that,
+\[
+\Delta A = w\Delta L + L\Delta w.
+\]
+Suppose we divide both sides of this equation by $A,$
+\begin{align*}
+\frac{\Delta A}{A} &= \frac{w\Delta L}{A} + \frac{L\Delta w}{A}\\
+		&=\frac{w\Delta L}{Lw} + \frac{L\Delta w}{Lw}\\
+		&=\frac{\Delta L}{L} + \frac{\Delta w}{w}.
+\end{align*}
+Thus the relative uncertainty of the product of two numbers is simply the sum of the relative uncertainties of the individual terms in the product.  To find  $\Delta A$ as a number the relative uncertainty $(\Delta A/A)$ is multiplied by $A.$  Using the above values for the length and width we have,
+\[
+\frac{\Delta L}{L} +\frac{\Delta w}{w} = \frac{0.06}{6.32}+\frac{0.05}{3.05} = 0.009 + 0.02 = 0.03
+\]
+Thus, $\Delta A/A=0.03$ so,
+\[
+\Delta A = 0.03 \times 19.3 = 0.6.
+\]
+We can write our formula then as,
+\[
+\Delta A = \left(\frac{\Delta L}{L} + \frac{\Delta w}{w}\right)A.
+\]
+
+Note that for the case $A = x/y,$ the relative uncertainty must again be added even though it would appear that they should subtract, for much the same reasons that we found when we subtracted two numbers.  If in doubt always revert to the original equation and substitute numerical values to find the lowest and highest possible values of the quantity we are calculating.  This procedure is always correct.
+
+For those of us who know calculus, the equation above may be obtained in terms of the differentials $dA, dl$ and $dw$ using the standard procedure for differentiating the product of two numbers. If $A = wL$ then,
+\[
+dA = wdL + Ldw
+\]
+and
+\[
+\frac{dA}{A}=\frac{dL}{L}+\frac{dw}{w}.
+\]
+In fact the laws of differentiation may usually be used in determining the propagation of errors in calculations involving experimental values.
+
+As another example, what error is incurred by taking the square root of an experimental number?  Let,
+\[
+R = \sqrt{X} = X^{1/2},
+\]
+then,
+\[
+dR=\frac{1}{2}X^{-1/2}dX,
+\]
+therefore,
+\[
+\frac{dR}{R}=\frac{1}{2}\frac{dX}{X}.
+\]
+So the relative uncertainty in $R$ is \emph{half} of the relative uncertainty in $X.$
+
+Those of we who do not have an understanding of calculus will still be expected to make use of the formulas given in this section for calculating propagated errors.  Some additional formulas are given below.  They are easily verified using the rules of calculus.
+\begin{enumerate}
+\item
+If $Z=X^2, \qquad \frac{\Delta Z}{Z} = 2\frac{\Delta X}{X}.$
+\item
+If $Z=X^n, \qquad \frac{\Delta Z}{Z} = n\frac{\Delta X}{X}.$
+\item
+If $Z=X^nY^p,\qquad \frac{\Delta Z}{Z}=n\frac{\Delta X}{X}+p\frac{\Delta Y}{Y}.$
+\item
+If $Z=\log{X}, \qquad \Delta Z = \frac{1}{X}\Delta X.$
+\item
+If $Z=\sin{X}, \qquad \Delta Z = \cos{X} \Delta X.$
+\end{enumerate}•
+
+
+
+\end{document}

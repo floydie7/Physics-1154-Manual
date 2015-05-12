@@ -1,0 +1,398 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section*{Goal}
+For our first meeting we will discuss some of the basic preliminaries that we will need for this course. Namely, the accuracy of our measurements and the reliability of our equipment. We also will discuss some basic vector arithmetic as many of the quantities that we use in physics are a certain mathematical structure called vectors.
+
+\section*{Equipment}
+\begin{itemize}
+\item
+Four Meter sticks
+\item
+Block of wood
+\item
+Masses
+\item
+Triple-beam balance
+\end{itemize}•
+
+\section*{Theory}
+\subsection*{Measurements}
+Whenever we take a measurement or write a number down in physics it is extremely important that we some how indicate what this number is. We typically do this by using units. The standard system units used in all of science are known as the International System of Units or SI (abbreviated from the French name, \emph{Le Syst\`{e}me International d'Unit\'{e}s}). SI was developed to replace the old metric system and was first published in 1960. It is comprised of seven base units: metre, kilogram, second, ampere, kelvin, candela, and mole which define length, mass, time, electric current, temperature, luminous intensity, and amount of substance respectively. We will be using these units and units that can be derived from the seven base units throughout the semester.
+
+Particular to experimentation is the need to be careful of the uncertainties and errors in our measurements. In our class we will generally use percent discrepancy which allows us to compare experimental values with standard or otherwise pre-agreed upon values and is defined below,
+\[
+\text{Percent discrepancy } = \frac{|\text{experimental value} - \text{standard value}|}{\text{standard value}}\times 100\%.
+\]
+Sometimes though, there is no ``standard value" to compare against. In these situations we will want to make many measurements in order to obtain an average value. With an average value we can then calculate a relative discrepancy. The formula for relative discrepancy is the same as that for percent discrepancy except that in place of the ``standard value" one uses the \emph{average} of the various experimental results.
+\[ 
+\text{Relative discrepancy } = \frac{|\text{experimental value} - \text{average value}|}{\text{average value}} \times 100\%
+\]
+
+We will also need to be aware of both systematic and random errors in our experiments. Systematic errors are those which arise mainly from deficiencies in the measuring device and they almost always tend to make \emph{all} of the readings too high or all of the readings too low. Random errors can generally be attributed to the physical limitations of the observer and measuring device. Given a set of data we show that the best, most accurate value is simply the arithmetic mean,
+\[
+\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n},
+\]
+where $\bar{x}$ is the mean of $n$ numbers. The uncertainty of our data points in our set is generally measured by what is called the standard deviation, $\sigma,$ given by,
+\[
+\sigma = \sqrt{\frac{\sum_{i=1}^{n} (x_i-\bar{x})^2}{n-1}}
+\]
+where $\bar{x}-x_i$ are the deviations of the individual readings and $n$ is the total number of readings.
+
+n.b., This is in no way an exhaustive discussion about measurements and uncertainties. For a much more extensive discussion and examples, please refer to Appendix~\ref{chap:Measurements}
+
+\subsection*{Vector Arithmetic}
+Vector arithmetic can sometimes be strange to use as it follows different rules as the regular arithmetic of real numbers we are typically used to. A vector is typically thought of as an arrow in space that has two parts: magnitude or the length of the arrow and direction or, in a flat, two-dimensional plane, the angle the arrow makes with an axis. When we add or subtract two vectors we need to take both parts into consideration.
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+	Vect1/.style={draw=red,fill=red,thick,>=latex},
+	Vect2/.style={draw=blue,fill=blue,thick,>=latex},
+	Vect3/.style={draw=brown,fill=brown,thick,>=latex}
+]
+
+\coordinate (O) at (0,0);
+\coordinate (A) at (2,1);
+\coordinate (B) at (5,0);
+\draw[Vect1,->] (O) -- (A) node [midway, above] {$\mathbf{A}$};
+\draw[Vect2,->] (A) -- (B) node [midway, above] {$\mathbf{B}$};
+\draw[Vect3,->] (O) -- (B) node [midway, below] {$\mathbf{C}=\mathbf{A}+\mathbf{B}$};
+
+\tikzAngleOfLine(A)(O){\AngleStart}
+\tikzAngleOfLine(A)(B){\AngleEnd}
+
+\draw (A)+(\AngleStart:0.25cm) arc (\AngleStart:\AngleEnd:0.25cm);
+\node [below] at ($(A)+({(\AngleStart+\AngleEnd)/2}:0.25 cm)$) {$\alpha$};
+
+\end{tikzpicture}
+\caption{} \label{fig:LawCosines}
+\end{figure}
+For example consider the vector addition in Figure~\ref{fig:LawCosines}. In order to find the magnitude of vector $\mathbf{C}$ we would need to know the magnitudes $A=|\mathbf{A}|$ and $B=|\mathbf{B}|$ and the angle between them, $\alpha.$ We remember from trigonometry that to find the length of the third side of any triangle, we use the law of cosines,
+\begin{equation}\label{eq:LawofCosines}
+C=\sqrt{A^2+B^2-2AB\cos\alpha}.
+\end{equation}
+Using Equation~\eqref{eq:LawofCosines} we can find $C$ but it can sometimes lead to confusion as to how the angle $\alpha$ is defined in relation to the angles $\theta_A$ and $\theta_B$ that define the orientation of vectors $\mathbf{A}$ and $\mathbf{B}$ respectively. Also, while Equation~\eqref{eq:LawofCosines} is simple now, with the addition of more than two vectors our job can become much more difficult. So instead of using the law of cosines, let us develop another method that is more procedural and easier to follow.
+
+\begin{wrapfigure}{R}{0.5\textwidth}
+\vspace{-10pt}
+\centering
+\begin{subfigure}[h]{0.5\textwidth}
+\centering
+\begin{tikzpicture}[
+	Vect1/.style={draw=red,fill=red,thick,>=latex},
+	Vect2/.style={draw=blue,fill=blue,thick,>=latex},
+	Vect3/.style={draw=brown,fill=brown,thick,>=latex},
+	axis/.style={draw=black,fill=black,>=latex}
+]
+	
+	\draw[axis,->] (-0.5,0) -- (3,0) node [right] {$x$};
+	\draw[axis,->] (0,-0.5) -- (0,3.5) node [above] {$y$};
+	
+	\coordinate (O) at (0,0);
+	\coordinate (A) at (1,1); \coordinate (Ax) at (1,0); \coordinate (Ay) at (0,1);
+	\coordinate (B) at (2,3); \coordinate (Bx) at (2,0); \coordinate (By) at (0,3);
+	\coordinate (Y) at (3,1);
+	
+	\draw[Vect3,->] (O) -- (B) node [midway, above,xshift=-3pt] {$\mathbf{C}$};
+	\draw[Vect1,->] (O) -- (A) node [midway, above,xshift=-3pt] {$\mathbf{A}$};
+	\draw[Vect2,->] (A) -- (B) node [midway, above,xshift=-5pt] {$\mathbf{B}$};
+	
+	\draw[Vect1,->] (O) -- (Ax) node [midway, below] {$A_x$};
+	\draw[Vect1,->] (O) -- (Ay) node [midway, left] {$A_y$};
+	\draw[Vect2,->] (Ax) -- (Bx) node [midway, below] {$B_x$};
+	\draw[Vect2,->] (Ay) -- (By) node [midway, left] {$B_y$};
+	
+	\draw [decorate,decoration={brace,amplitude=10pt,mirror},xshift=0pt,yshift=-3pt] (0,-0.5) -- (2,-0.5) node [midway, below, yshift=-10pt] {$C_x$};
+	\draw [decorate,decoration={brace,amplitude=10pt},xshift=-3pt,yshift=0pt] (-0.5,0) -- (-0.5,3) node [midway, left, xshift=-10pt] {$C_y$};
+	
+	\draw[dashed,gray] (A) -- (Ax);
+	\draw[dashed,gray] (Ay) -- (Y);
+	\draw[dashed,gray] (B) -- (By);
+	\draw[dashed,gray] (B) -- (Bx);
+	
+	\tikzAngleOfLine(O)(A){\AngleStartA}
+	\tikzAngleOfLine(O)(Ax){\AngleEndA}
+	\tikzAngleOfLine(A)(B){\AngleStartB}
+	\tikzAngleOfLine(A)(Y){\AngleEndB}
+	
+	\draw (O)+(\AngleStartA:0.25cm) arc (\AngleStartA:\AngleEndA:0.25cm);
+	\node [right,yshift=3pt] at ($(O)+({(\AngleStartA+\AngleEndA)/2}:0.25 cm)$) {$\theta_A$};
+	\draw (A)+(\AngleStartB:0.25cm) arc (\AngleStartB:\AngleEndB:0.25cm);
+	\node [right,yshift=5pt] at ($(A)+({(\AngleStartB+\AngleEndB)/2}:0.25 cm)$) {$\theta_B$};
+
+\end{tikzpicture}
+\caption{} \label{fig:Example}
+\end{subfigure}
+
+\begin{subfigure}[h]{0.5\textwidth}
+\centering
+\begin{tikzpicture}[
+	scale=1.5,
+	Vect1/.style={draw=red,fill=red,thick,>=latex},
+	axis/.style={draw=black,fill=black,>=latex}
+]
+	
+	\draw[axis,->] (-0.5,0) -- (1.5,0) node [right] {$x$};
+	\draw[axis,->] (0,-0.5) -- (0,1.5) node [above] {$y$};
+
+	\coordinate (O) at (0,0);
+	\coordinate (A) at (1,1); \coordinate (Ax) at (1,0); \coordinate (Ay) at (0,1);
+
+	\draw[Vect1,->] (O) -- (A) node [midway, above,xshift=-3pt] {$\mathbf{A}$};
+
+	\draw[Vect1,->] (O) -- (Ax) node [midway, below] {$A_x$};
+	\draw[Vect1,->] (Ax) -- (A) node [midway, right] {$A_y$};
+
+	\tikzAngleOfLine(O)(A){\AngleStartA}
+	\tikzAngleOfLine(O)(Ax){\AngleEndA}
+
+	\draw (O)+(\AngleStartA:0.25cm) arc (\AngleStartA:\AngleEndA:0.25cm);
+	\node [right,yshift=3pt] at ($(O)+({(\AngleStartA+\AngleEndA)/2}:0.25 cm)$) {$\theta_A$};
+	\draw (.85,0) -- (.85,.15) -- (1,.15);
+
+\end{tikzpicture}
+\caption{} \label{fig:VectA}
+\end{subfigure}
+\caption{}
+\vspace{-9\baselineskip}
+\end{wrapfigure}
+
+Consider the vectors in Figure~\ref{fig:Example}, We want to compute both the magnitude of vector $\mathbf{C}$ and its angle $\theta_C$ (as measured from the $x$-axis). To do this we must first break the vectors $\mathbf{A}$ and $\mathbf{B}$ into their $x$ and $y$ components. The advantage of this is that instead of dealing with an obtuse triangle we can focus on one right triangle per vector, which is much easier to handle and can easily be expanded to as many vectors as we need.
+\FloatBarrier
+
+To determine the components of our vectors we use the basic trigonometric identities,
+\begin{align}
+\cos\theta_A=\frac{A_x}{A} \; \text{or} \; A_x=A\cos\theta_A,\\
+\sin\theta_A=\frac{A_y}{A} \; \text{or} \; A_y=A\sin\theta_A.
+\end{align}
+Once we have reduced all our vectors to components along the axes, we can then simply add the components that are in the same direction to get the components of our resultant vector, $\mathbf{C}.$ When we have our resultant components, we can use the Pythagorean theorem to find the magnitude of our resultant,
+\begin{align}
+C&=\sqrt{C_x^2+C_y^2}\nonumber\\
+&=\sqrt{(A_x+B_x)^2+(A_y+B_y)^2}.
+\end{align}
+To find the the direction, we use the identity,
+\begin{equation}
+\tan\theta_C=\frac{C_y}{C_x} \quad \text{or} \quad \theta_C=\arctan\left(\frac{C_y}{C_x}\right).
+\end{equation}
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\centering
+\begin{tikzpicture}[
+	Vect1/.style={draw=red,fill=red,thick,>=latex},
+	Vect2/.style={draw=blue,fill=blue,thick,>=latex}
+]
+
+	\coordinate (O) at (0,0);
+	\coordinate (A) at (3,1);
+	\coordinate (B) at (2,3);
+
+	\draw[Vect1,->] (O) -- (A) node [midway, below] {$\mathbf{A}$};
+	\draw[Vect2,->] (O) -- (B) node [midway, above,xshift=-3pt] {$\mathbf{B}$};
+
+	\tikzAngleOfLine(O)(A){\AngleStart}
+	\tikzAngleOfLine(O)(B){\AngleEnd}
+	
+	\draw (O)+(\AngleStart:0.5cm) arc (\AngleStart:\AngleEnd:0.5cm);
+	\node [right,yshift=3pt] at ($(O)+({(\AngleStart+\AngleEnd)/2}:0.5cm)$) {$\theta$};
+
+\end{tikzpicture}
+\caption{} \label{fig:Multiplication}
+%\vspace{-9\baselineskip}
+\end{wrapfigure}
+
+Now that we understand how to add vectors, let's talk about multiplication. Vector multiplication is perhaps the most different from the multiplication of real numbers that we are used to. The most stark difference is that for vectors there is not one but \emph{two} distinct types of multiplication. The first is called the \emph{scalar product} or \emph{dot product} which produces a scalar quantity. The other type of multiplication is called the \emph{vector product} or \emph{cross product} which produces a vector quantity.
+\subsubsection*{Scalar Product}
+The scalar product of two vectors $\mathbf{A}$ and $\mathbf{B}$ is denoted as $\mathbf{A}\cdot\mathbf{B}$ and thus is often also called the ``dot product."  This multiplication inputs two vectors and outputs a scalar. We will use this later in Chapter~\ref{chap:Energy} when we study work. To compute magnitude of the scalar product $\mathbf{A}\cdot\mathbf{B}$ we want to project our second vector $\mathbf{B}$ onto our first vector $\mathbf{A}$. We can do this by choosing the component of $\mathbf{B}$ in the direction of $\mathbf{A}, B\cos\theta,$ where $\theta$ is the angle between the two vectors as seen in Figure~\ref{fig:Multiplication}. So we have,
+\begin{equation}
+\mathbf{A}\cdot\mathbf{B}=|\mathbf{A}||\mathbf{B}|\cos\theta.
+\end{equation}
+It is also worth noting that the scalar product is commutative. i.e., $\mathbf{A}\cdot\mathbf{B}=\mathbf{B}\cdot\mathbf{A}.$
+
+\subsubsection*{Vector Product}
+The vector product of two vectors $\mathbf{A}$ and $\mathbf{B}$ is denoted as $\mathbf{A}\times\mathbf{B}$ and thus is also called the ``cross product." This multiplication inputs two vectors and outputs a new vector. This product will come up in Chapter~\ref{chap:Torque} when we study torque. To compute the magnitude of the vector product $\mathbf{A}\times\mathbf{B}$ we want choose the component of our second vector $\mathbf{B}$ that is perpendicular to $\mathbf{A}, B\sin\theta$ where $\theta$ is the angle between $\mathbf{A}$ and $\mathbf{B}$ \emph{measured from $\mathbf{A}$ towards $\mathbf{B}$}. This directionality is important as we will see later. Thus we have,
+\begin{equation}
+|\mathbf{A}\times\mathbf{B}|=|\mathbf{A}||\mathbf{B}|\sin\theta.
+\end{equation}
+In contrast to the scalar product, the vector product is \emph{not} commutative. i.e., $\mathbf{A}\times\mathbf{B}\neq\mathbf{B}\times\mathbf{A}.$ This is at first a confusing concept to many students because the multiplication that we are most familiar with is the multiplication of real numbers which is commutative. Here though, the order of the vectors in our multiplication does matter. One of the defining properties of the vector product is that the resultant vector will always be \emph{orthogonal} or mutually perpendicular to both its parent vectors. Thus we can determine the direction of our resultant by what is known as the ``right-hand rule." This simple mnemonic is true for all vector products and is setup as follows: The index finger of the right hand is pointed in the direction of the first vector of the product ($\mathbf{A}$), the middle finger is pointed in the direction of the second vector ($\mathbf{B}$), then the thumb will be pointing in the correct direction of the resultant vector.
+
+Note that this is not a complete discussion on the two vector multiplications. There are methods to compute the products when we are given the vectors $\mathbf{A}$ and $\mathbf{B}$ in component form. This is especially important when considering the cross product as it outputs a new vector. However, in this class we will typically handle our vectors as magnitudes and find the direction afterwards.
+
+Finally, a note: While we may often use degrees to measure angles out of habit or convenience in physics it should be noted that the standard unit for an angle is a radian, where $1\text{ rad} = 57.3\degree.$
+\FloatBarrier
+
+\section{Setup I: Measurements}
+\begin{enumerate}
+\item
+Each member of the group should measure the length of the block of wood using the meter sticks at the table. Then once everyone has measured the block calculate the average measured length and the standard deviation of the readings.
+\item
+Using the triple-beam balance provided, measure the mass of several of the disks with the same printed mass. Calculate the average measured mass and standard deviation of the readings.
+\end{enumerate}•
+
+
+\section{Setup II: Vector Arithmetic}
+\begin{enumerate}
+\item
+Use the three vectors assigned by the instructor to solve for the resultant vector $\mathbf{D}=\mathbf{A}+\mathbf{B}+\mathbf{C}$ by using the component method described in the theory section. Record the values on the data sheet. Show sample calculations.
+\item
+Use the additional pair of vectors assigned by the instructor to calculate the resultant vector $\mathbf{C}=\mathbf{A}-\mathbf{B}$ by using the component method. Hint: $\mathbf{A}-\mathbf{B}=\mathbf{A}+ (-\mathbf{B})$ where $-\mathbf{B}$ has the same magnitude as $\mathbf{B}$ but is in the opposite direction, e.g., if for $\mathbf{B}$ the components are $B_x=2\text{ m}$ and $B_y=5\text{ m}$ then $-\mathbf{B}$ has components $B_x=-2\text{ m}$ and $B_y=-5\text{ m}.$
+%\item \label{step:UnknownMass}
+%At the lecture table, a problem has been setup with an unknown mass. Measure the angles and record the tension along the strings making sure that we convert the reading of the scale (in grams) into a force (in Newtons). Using vector arithmetic, solve for the unknown mass. (Hint: The point of the string from which the weight is suspended is not moving. What does that tell us have the net vector force acting on that point?)
+\item
+Another way to visualize the cross product is as the area of a parallelogram with the length of the sides equal to the magnitudes of the vectors.
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+	Vect1/.style={draw=red,fill=red,thick,>=latex},
+	Vect2/.style={draw=blue,fill=blue,thick,>=latex},
+	Vect3/.style={draw=brown,fill=brown,thick,>=latex}
+]
+	\coordinate (O) at (0,0);
+	\coordinate (A) at (3,1);
+	\coordinate (B) at (2,3);
+
+	\fill [lightgray] (O) -- (A) -- (5,4) -- (B) -- cycle;
+	\draw[Vect1,->] (O) -- (A) node [midway, below] {$\mathbf{A}$};
+	\draw[Vect2,->] (O) -- (B) node [midway, above,xshift=-3pt] {$\mathbf{B}$};
+	\draw[Vect3,->,shift={(2,3)}] (3,1) -- (0,0);
+	\draw[Vect3,->,shift={(3,1)}] (2,3) -- (0,0);
+	
+
+	\tikzAngleOfLine(O)(A){\AngleStart}
+	\tikzAngleOfLine(O)(B){\AngleEnd}
+	
+	\draw (O)+(\AngleStart:0.5cm) arc (\AngleStart:\AngleEnd:0.5cm);
+	\node [right,yshift=3pt] at ($(O)+({(\AngleStart+\AngleEnd)/2}:0.5cm)$) {$\theta$};
+
+\end{tikzpicture}
+\caption{}
+\end{figure}
+Verify this by using the final pair of vectors given by the instructor to calculate the resultant vector $\mathbf{C}=\mathbf{A}\times\mathbf{B}.$ Show that both the area of the parallelogram and the magnitude of the resultant vector $\mathbf{C}$ are the same. Also, determine which direction the vector $\mathbf{C}$ is pointing i.e., in or out of the paper.
+\end{enumerate}
+\FloatBarrier
+
+\begin{samepage}
+\hrulefill\\ \\
+\emph{Chapter~\ref{chap:Vectors-Measurements}:} \textbf{Vectors \& Measurements}\\
+Fill out the accompanying report template. The points are distributed as follows:
+\begin{enumerate}
+\item
+\textbf{(5)} Purpose ---  What was the point of these experiments and problems? What information can we gain from them?
+\item
+\textbf{(10)} Theory --- Describe in one or two paragraphs how to find the sum, difference, and both scalar and vector products. Include both complete sentences and equations.
+\item
+\textbf{(20)} Data Sheets
+\item
+\textbf{(10)} Show work for all calculations. (May be written on data sheets.)
+\item
+\textbf{(5)} Conclusion --- Close with a short summary of the experiments and any final thoughts about our experiments and problems.
+\end{enumerate}•
+\end{samepage}
+
+
+\newpage
+\begin{doublespace}
+\section{Vectors \& Measurements Assignment}
+\begin{flushright}
+Name:\rule[-1mm]{5cm}{.1pt}
+\end{flushright}
+
+\noindent
+\textbf{Purpose:}
+\\[4cm]
+\textbf{Theory:}
+
+\newpage
+\subsection*{Data Sheets}
+\subsubsection*{Measurements}
+
+Length of wooden block\\
+
+\begin{tabular}{|r|r|r|}
+\hline
+Lengths $x_i$ & Deviations, $x_i-\bar{x}$ & $(x_i-\bar{x})^2$\\
+\hline
+&&\\ \hline
+&&\\ \hline
+&&\\ \hline
+&&\\ \hline
+\end{tabular}\\
+
+Average length ($\bar{x}$)= \rule[-1mm]{2.5cm}{.1pt}\\
+Standard deviation =  \rule[-1mm]{2.5cm}{.1pt}\\ \\
+
+Measured masses\\
+
+\begin{tabular}{|r|r|r|}
+\hline
+Masses $x_i$ & Deviations, $x_i-\bar{x}$ & $(x_i-\bar{x})^2$\\
+\hline
+&&\\ \hline
+&&\\ \hline
+&&\\ \hline
+\end{tabular}\\
+
+Average mass ($\bar{x}$)= \rule[-1mm]{2.5cm}{.1pt}\\
+Standard deviation =  \rule[-1mm]{2.5cm}{.1pt}
+
+\newpage
+\subsubsection*{Vector Arithmetic}
+
+\begin{centering}
+$\mathbf{A}=\rule[-1mm]{2.5cm}{.1pt}\text{ at }\rule[-1mm]{2.5cm}{.1pt}$\\
+$\mathbf{B}=\rule[-1mm]{2.5cm}{.1pt}\text{ at }\rule[-1mm]{2.5cm}{.1pt}$\\
+$\mathbf{C}=\rule[-1mm]{2.5cm}{.1pt}\text{ at }\rule[-1mm]{2.5cm}{.1pt}$\\
+\end{centering}\vspace{10pt}
+
+\begin{tabular}{|c|c|c|}
+\hline
+Vector & $x$ Component & $y$ Component\\
+\hline
+&&\\
+\hline
+&&\\
+\hline
+&&\\
+\hline
+Resultant ($\mathbf{D}=\mathbf{A}+\mathbf{B}+\mathbf{C}$) &&\\
+\hline
+\end{tabular}•\\
+
+Magnitude$=\rule[-1mm]{2.5cm}{.1pt} \quad  \tan\theta=\rule[-1mm]{2.5cm}{.1pt} \quad \theta=\rule[-1mm]{1.5cm}{.1pt}$\\
+
+\begin{centering}
+$\mathbf{A}=\rule[-1mm]{2.5cm}{.1pt}\text{ at }\rule[-1mm]{2.5cm}{.1pt}$\\
+$\mathbf{B}=\rule[-1mm]{2.5cm}{.1pt}\text{ at }\rule[-1mm]{2.5cm}{.1pt}$\\
+\end{centering}\vspace{10pt}
+
+\begin{tabular}{|c|c|c|}
+\hline
+Vector & $x$ Component & $y$ Component\\
+\hline
+&&\\
+\hline
+&&\\
+\hline
+Resultant ($\mathbf{C}=\mathbf{A}-\mathbf{B}$) &&\\
+\hline
+\end{tabular}•\\ 
+
+Magnitude$=\rule[-1mm]{2.5cm}{.1pt} \quad  \tan\theta=\rule[-1mm]{2.5cm}{.1pt} \quad \theta=\rule[-1mm]{1.5cm}{.1pt}$\\
+
+%Lecture Table Problem:\\
+%$F_1=\rule[-1mm]{2.5cm}{.1pt}, \theta_1=\rule[-1mm]{1.5cm}{.1pt} \quad F_2=\rule[-1mm]{2.5cm}{.1pt}, \theta_2=\rule[-1mm]{1.5cm}{.1pt}$
+
+\begin{centering}
+$\mathbf{A}=\rule[-1mm]{2.5cm}{.1pt}\text{ at }\rule[-1mm]{2.5cm}{.1pt}$\\
+$\mathbf{B}=\rule[-1mm]{2.5cm}{.1pt}\text{ at }\rule[-1mm]{2.5cm}{.1pt}$\\
+\end{centering}\vspace{10pt}
+
+
+Area of parallelogram = \rule[-1mm]{2.5cm}{.1pt}\\
+Magnitude $|\mathbf{C}|=|\mathbf{A}\times\mathbf{B}|=\rule[-1mm]{2.5cm}{.1pt}$ \quad Direction of $\mathbf{C}$=\rule[-1mm]{2.5cm}{.1pt}\\
+
+\newpage
+\textbf{Conclusion:}
+
+\end{doublespace}
+\end{document}

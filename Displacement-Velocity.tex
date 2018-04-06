@@ -1,5 +1,10 @@
 \documentclass[main.tex]{subfiles}
 
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\makebox[\pageoffset][l]{\bfseries\thepage}\bfseries\leftmark}
+\fancyhead[RO]{\bfseries\rightmark\makebox[\pageoffset][r]{\bfseries\thepage}}
+
 \begin{document}
 
 \section*{Goal}
@@ -36,7 +41,7 @@ where $t$ is the time when the object is at position $x$ and $t_0$ is the time a
 \[
 v=\lim_{t\rightarrow t_0}\frac{x(t)-x(t_0)}{t-t_0}=\frac{dx}{dt}.
 \]
-\section{Setup I: Motion Graph Matching.}
+\section{Setup I: Motion Graph Matching}
 \begin{enumerate}
 \item
 Turn the 850 Universal Interface (850UI) on.
@@ -98,7 +103,7 @@ What is the difference between the parts of the plot with positive slope and the
 Consider the Velocity 2 plot. What is the difference between places where the slope is large and places where the slope is near zero?
 \end{question}
 
-\section{Setup II: Looking at Position \& Velocity graphs together.}
+\section{Setup II: Looking at Position \& Velocity graphs together}
 \begin{enumerate}
 \item
 We now want to clear all our data and start a new experiment. We can do this by clicking on the ``New Experiment" button \includegraphics{New_Experiment} or going to ``File" \textgreater ``New Experiment."
